@@ -1,9 +1,12 @@
 "use client"
 
 import Link from 'next/link';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 function Navbar() {
+
+  const { data: session } = useSession();
+
   return (
     <nav className='bg-slate-900 flex items-center py-3 justify-between px-20 text-white'>
       <Link href="/">
