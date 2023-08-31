@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 function Navbar() {
 
@@ -24,9 +24,15 @@ function Navbar() {
             alt='Avatar User'
             className='w-10 h-10 rounded-full cursor-pointer'
           />
+          <button 
+            onClick={() => {signOut()}}
+            className='bg-sky-400 px-3 py-2 rounded'
+          >
+            Logout
+          </button>
         </div>
       ) : (
-        <button onClick={() => signIn()} className='bg-sky-400 px-3 py-2 rounded'>
+        <button onClick={() => signIn()} className='bg-green-400 px-3 py-2 rounded'>
           Sign In
         </button>
       )}
